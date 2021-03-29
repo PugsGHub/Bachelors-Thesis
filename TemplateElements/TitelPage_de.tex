@@ -1,0 +1,205 @@
+
+% setup page dimensions for titlepage
+\newgeometry{left=2.4cm,right=2.4cm,bottom=2.5cm,top=2cm}
+
+% force baselineskip and parindent
+%\newlength{\tmpbaselineskip}
+%\setlength{\tmpbaselineskip}{\baselineskip}
+%\setlength{\baselineskip}{13.6pt}
+%\newlength{\tmpparindent}
+%\setlength{\tmpparindent}{\parindent}
+%\setlength{\parindent}{17pt}
+
+% first titlepage
+\pagestyle{empty}
+
+\begin{figure}[H]
+\vspace*{-2.5cm}
+\hspace*{2.5cm}
+\includegraphics[keepaspectratio, width=1.4\textwidth, right]{TemplateElements/fhLogo3.png}
+\end{figure}
+
+
+
+\begin{center}
+
+\vspace{1cm}
+
+\begin{minipage}[t][5cm][s]{\textwidth}%
+\centering
+\Huge{{\color{FH2}{\fontsize{24}{30} \selectfont \workTitle\\}}}
+\vspace{0.5cm}
+\LARGE{{\color{FH2}{\fontsize{16}{24} \selectfont \subTitle\\}}}
+\end{minipage}
+
+\vspace{1cm}
+
+
+\ifnum\ifUseBachelorMediaTechnologiesOne 1
+\else\ifUseBachelorSmartEngineeringOne 1
+\else\ifUseBachelorCreativeComputingOne 1
+\else0
+\fi\fi\fi
+=1 
+   	\LARGE{Research Paper}
+\else
+	\ifnum\ifUseBachelorMediaTechnologiesTwo 2
+	\else\ifUseBachelorSmartEngineeringTwo 2
+	\else\ifUseBachelorCreativeComputingTwo 2
+\else0
+\fi\fi\fi
+=2
+	\LARGE{Bachelorarbeit}
+\else
+	\ifUseMasterInteractiveTechnologies
+		\LARGE{Masterarbeit}
+	\else
+	\ifUseMasterDigitalDesign
+		\LARGE{Masterarbeit}
+	\else
+    \ifUseMasterDigitalMediaProduction
+		\LARGE{Masterarbeit}
+	\else
+	\ifUseMasterDigitalHealthCare
+		\LARGE{Masterarbeit}
+    \else
+        \LARGE{YOU HAVE TO CHOOSE THE PROGRAM TYPE IN THE SETTINGS!!!}
+    \fi\fi\fi\fi
+\fi\fi
+
+
+\vspace{1.3cm}
+\ifUseBachelorMediaTechnologiesOne
+	\fontsize{11pt}{15pt}\selectfont Bachelor-Studiengang Medientechnik\\
+Fachhochschule St. Pölten\\  
+\else
+	\ifUseBachelorMediaTechnologiesTwo
+		\fontsize{11pt}{15pt}\selectfont Bachelor-Studiengang Medientechnik\\
+Fachhochschule St. Pölten\\  
+\else
+	\ifUseBachelorSmartEngineeringOne
+    	\fontsize{11pt}{15pt}\selectfont Bachelor-Studiengang Smart Engineering\\
+Fachhochschule St. Pölten\\ 
+\else
+    \ifUseBachelorCreativeComputingOne
+    	\fontsize{11pt}{15pt}\selectfont Bachelor-Studiengang Creative Computing\\
+Fachhochschule St. Pölten\\ 
+\else
+	\ifUseBachelorSmartEngineeringTwo
+    	\fontsize{11pt}{15pt}\selectfont Bachelor-Studiengang Smart Engineering\\
+Fachhochschule St. Pölten\\ 
+\else
+    \ifUseBachelorCreativeComputingTwo
+    	\fontsize{11pt}{15pt}\selectfont Bachelor-Studiengang Creative Computing\\
+Fachhochschule St. Pölten\\ 
+\else
+	\ifUseMasterInteractiveTechnologies
+		\fontsize{11pt}{15pt}\selectfont Ausgeführt zum Zweck der Erlangung des akademischen Grades\\
+		\textbf{Dipl.-Ing. für technisch-wissenschaftliche Berufe}
+\else
+	\ifUseMasterDigitalDesign
+		\fontsize{11pt}{15pt}\selectfont Ausgeführt zum Zweck der Erlangung des akademischen Grades\\
+		\textbf{Dipl.-Ing. für technisch-wissenschaftliche Berufe}	
+\else
+    \ifUseMasterDigitalMediaProduction
+		\fontsize{11pt}{15pt}\selectfont Ausgeführt zum Zweck der Erlangung des akademischen Grades\\
+		\textbf{Dipl.-Ing. für technisch-wissenschaftliche Berufe}	
+\else
+	\ifUseMasterDigitalHealthCare
+    	\fontsize{11pt}{15pt}\selectfont Ausgeführt zum Zweck der Erlangung des akademischen Grades\\
+		\textbf{Master of Science in Engineering (MSc)}
+    \else
+        \LARGE{YOU HAVE TO CHOOSE THE PROGRAM TYPE IN THE SETTINGS!!!}
+\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi
+
+\vspace{4mm}
+
+\ifUseMasterInteractiveTechnologies
+	am Masterstudiengang Interactive Technologies an der\\ 
+Fachhochschule St. Pölten, Masterklasse \specialization
+\else
+    \ifUseMasterDigitalDesign
+	am Masterstudiengang Digital Design an der\\ 
+Fachhochschule St. Pölten, Masterklasse \specialization
+\else
+    \ifUseMasterDigitalMediaProduction
+	am Masterstudiengang Digital Media Production an der\\ 
+Fachhochschule St. Pölten, Masterklasse \specialization
+\else
+	\ifUseMasterDigitalHealthCare
+		am Masterstudiengang Digital Healthcare\\ 
+an der Fachhochschule St. Pölten
+    \else
+        
+  	\fi\fi\fi\fi
+
+\vspace{1cm}
+\ifUseBachelorMediaTechnologiesOne
+	Submitted by:
+    
+\else
+	Ausgeführt von:\\ 
+\fi
+\fontsize{15pt}{15pt}\selectfont
+\textbf{\studentFirstName\ \studentLastName} \\
+\fontsize{11pt}{15pt}\selectfont
+\studentId
+
+\vspace{1cm}
+\ifUseBachelorMediaTechnologiesOne
+	\begin{tabular}{lll}
+    Betreuer/in: & & \advisorPreTitle\ \advisoFirstName\ 		\advisorLastName, \advisorPosTitle\\
+    %Zweitbegutachter/in: & & [Titel Vorname Zuname]
+    \end{tabular}
+\else
+\ifUseBachelorSmartEngineeringOne
+	\begin{tabular}{lll}
+    Betreuer/in: & & \advisorPreTitle\ \advisoFirstName\ 		\advisorLastName, \advisorPosTitle\\
+    %Zweitbegutachter/in: & & [Titel Vorname Zuname]
+    \end{tabular}
+\else
+\ifUseBachelorCreativeComputingOne
+	\begin{tabular}{lll}
+    Betreuer/in: & & \advisorPreTitle\ \advisoFirstName\ 		\advisorLastName, \advisorPosTitle\\
+    %Zweitbegutachter/in: & & [Titel Vorname Zuname]
+    \end{tabular}
+\else
+	\ifUseBachelorMediaTechnologiesTwo
+		\begin{tabular}{lll}
+        Betreuer/in: & & \advisorPreTitle\ \advisoFirstName\ \advisorLastName, \advisorPosTitle\\
+        %Zweitbegutachter/in: & & [Titel Vorname Zuname]
+		\end{tabular}
+\else
+	\ifUseBachelorSmartEngineeringTwo
+		\begin{tabular}{lll}
+        Betreuer/in: & & \advisorPreTitle\ \advisoFirstName\ \advisorLastName, \advisorPosTitle\\
+        %Zweitbegutachter/in: & & [Titel Vorname Zuname]
+		\end{tabular}
+\else
+	\ifUseBachelorCreativeComputingTwo
+		\begin{tabular}{lll}
+        Betreuer/in: & & \advisorPreTitle\ \advisoFirstName\ \advisorLastName, \advisorPosTitle\\
+        %Zweitbegutachter/in: & & [Titel Vorname Zuname]
+		\end{tabular}
+\else
+\begin{tabular}{lll}
+Betreuer/in: & \advisorPreTitle\ \advisoFirstName\ \advisorLastName, \advisorPosTitle\\
+Zweitbetreuer/in: & \assessorPreTitle\ \assessorFirstName\ \assessorLastName, \assessorPosTitle\\
+\end{tabular}
+
+\fi
+\fi
+\fi
+\fi
+\fi
+\fi
+
+\vspace{1cm}
+
+
+\large{\place, \dateDay.\dateMonth.\dateYear}
+
+
+\end{center}
+
+\restoregeometry

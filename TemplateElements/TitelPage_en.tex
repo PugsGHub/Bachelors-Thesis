@@ -1,0 +1,203 @@
+
+% setup page dimensions for titlepage
+\newgeometry{left=2.4cm,right=2.4cm,bottom=2.5cm,top=2cm}
+
+
+% first titlepage
+\pagestyle{empty}
+
+\begin{figure}[H]
+\vspace*{-2.5cm}
+\hspace*{2.5cm}
+\includegraphics[keepaspectratio, width=1.4\textwidth, right]{TemplateElements/fhLogo3.png}
+\end{figure}
+
+
+
+\begin{center}
+
+\vspace{1cm}
+
+\begin{minipage}[t][5cm][s]{\textwidth}%
+\centering
+\Huge{{\color{FH2}{\fontsize{24}{30} \selectfont \workTitle\\}}}
+\vspace{0.5cm}
+\LARGE{{\color{FH2}{\fontsize{16}{24} \selectfont \subTitle\\}}}
+\end{minipage}
+
+\vspace{1cm}
+
+\ifUseBachelorMediaTechnologiesOne
+	\LARGE{Research Paper}
+\else
+	\ifUseBachelorMediaTechnologiesTwo
+		\LARGE{Bachelor Thesis}
+\else
+\ifUseBachelorSmartEngineeringOne
+	\LARGE{Research Paper}
+\else
+	\ifUseBachelorSmartEngineeringTwo
+		\LARGE{Bachelor Thesis}
+\else
+\ifUseBachelorCreativeComputingOne
+	\LARGE{Research Paper}
+\else
+	\ifUseBachelorCreativeComputingTwo
+		\LARGE{Bachelor Thesis}
+\else
+	\ifUseMasterInteractiveTechnologies
+		\LARGE{Bachelors Thesis}
+\else
+	\ifUseMasterDigitalDesign
+		\LARGE{Master Thesis}
+\else
+    \ifUseMasterDigitalMediaProduction
+		\LARGE{Master Thesis}
+\else
+	\ifUseMasterDigitalHealthCare
+		\LARGE{Master Thesis}
+    \else
+        \LARGE{YOU HAVE TO CHOOSE THE PROGRAM TYPE IN THE SETTINGS!!!}
+  	\fi
+\fi
+\fi
+\fi\fi\fi\fi\fi\fi\fi
+  
+\vspace{1.3cm}
+\ifUseBachelorMediaTechnologiesOne
+	\fontsize{11pt}{15pt}\selectfont Bachelor Course on Media Technology\\
+at St. Pölten University of Applied Sciences\\  
+\else
+	\ifUseBachelorMediaTechnologiesTwo
+		\fontsize{11pt}{15pt}\selectfont Bachelor Course on Media Technology\\
+at St. Pölten University of Applied Sciences\\  
+\else
+\ifUseBachelorSmartEngineeringOne
+	\fontsize{11pt}{15pt}\selectfont Bachelor Course on Smart Engineering\\
+at St. Pölten University of Applied Sciences\\  
+\else
+	\ifUseBachelorSmartEngineeringTwo
+		\fontsize{11pt}{15pt}\selectfont Bachelor Course on Smart Engineering\\
+at St. Pölten University of Applied Sciences\\  
+\else
+\ifUseBachelorCreativeComputingOne
+	\fontsize{11pt}{15pt}\selectfont Bachelor Course on Creative Computing\\
+at St. Pölten University of Applied Sciences\\  
+\else
+	\ifUseBachelorCreativeComputingTwo
+		\fontsize{11pt}{15pt}\selectfont Bachelor Course on Creative Computing\\
+at St. Pölten University of Applied Sciences\\  
+\else
+	\ifUseMasterInteractiveTechnologies
+		\fontsize{11pt}{15pt}\selectfont For attainment of the academic degree of\\
+		\textbf{Bachelor of Science, Physics}
+\else
+    \ifUseMasterDigitalDesign
+		\fontsize{11pt}{15pt}\selectfont For attainment of the academic degree of\\
+		\textbf{Dipl.-Ing. für technisch-wissenschaftliche Berufe}
+\else
+    \ifUseMasterDigitalMediaProduction
+		\fontsize{11pt}{15pt}\selectfont For attainment of the academic degree of\\
+		\textbf{Dipl.-Ing. für technisch-wissenschaftliche Berufe}
+\else
+	\ifUseMasterDigitalHealthCare
+    	\fontsize{11pt}{15pt}\selectfont For attainment of the academic degree of\\
+		\textbf{Master of Science in Engineering (MSc)}
+    \else
+        \LARGE{YOU HAVE TO CHOOSE THE PROGRAM TYPE IN THE SETTINGS!!!}
+  	\fi
+\fi
+\fi
+\fi\fi\fi
+\fi\fi\fi\fi
+
+\vspace{4mm}
+ 
+\ifUseMasterInteractiveTechnologies
+	in the Bachelor of Science in Physics, \\ at Loyola College, Chennai %\specialization
+\else
+    \ifUseMasterDigitalDesign
+	in the Masters Course Digital Design at St. Pölten\\ 
+University of Applied Sciences, Masterclass \specialization
+\else
+    \ifUseMasterDigitalMediaProduction
+	in the Masters Course Digital Media Production at St. Pölten\\ 
+University of Applied Sciences, Masterclass \specialization
+\else
+	\ifUseMasterDigitalHealthCare
+		in the Masters Course Digital Healthcare\\ 
+at St. Pölten University of Applied Sciences
+    \else
+  	\fi
+\fi\fi\fi
+
+
+
+
+
+\vspace{1cm}
+
+Submitted by:\\ 
+\fontsize{15pt}{15pt}\selectfont
+\textbf{\studentFirstName\ \studentLastName} \\
+\fontsize{11pt}{15pt}\selectfont
+\studentId
+
+\vspace{1cm}
+\ifUseBachelorMediaTechnologiesOne
+	\begin{tabular}{lll}
+    Advisor: & & \advisorPreTitle\ \advisoFirstName\ 		\advisorLastName, \advisorPosTitle\\
+    %Zweitbegutachter/in: & & [Titel Vorname Zuname]
+    \end{tabular}
+\else
+\ifUseBachelorSmartEngineeringOne
+	\begin{tabular}{lll}
+    Advisor: & & \advisorPreTitle\ \advisoFirstName\ 		\advisorLastName, \advisorPosTitle\\
+    %Zweitbegutachter/in: & & [Titel Vorname Zuname]
+    \end{tabular}
+\else
+\ifUseBachelorCreativeComputingOne
+	\begin{tabular}{lll}
+    Advisor: & & \advisorPreTitle\ \advisoFirstName\ 		\advisorLastName, \advisorPosTitle\\
+    %Zweitbegutachter/in: & & [Titel Vorname Zuname]
+    \end{tabular}
+\else
+	\ifUseBachelorMediaTechnologiesTwo
+		\begin{tabular}{lll}
+        Advisor: & & \advisorPreTitle\ \advisoFirstName\ \advisorLastName, \advisorPosTitle\\
+        %Zweitbegutachter/in: & & [Titel Vorname Zuname]
+		\end{tabular}
+\else
+	\ifUseBachelorSmartEngineeringTwo
+		\begin{tabular}{lll}
+        Advisor: & & \advisorPreTitle\ \advisoFirstName\ \advisorLastName, \advisorPosTitle\\
+        %Zweitbegutachter/in: & & [Titel Vorname Zuname]
+		\end{tabular}
+\else
+	\ifUseBachelorCreativeComputingTwo
+		\begin{tabular}{lll}
+        Advisor: & & \advisorPreTitle\ \advisoFirstName\ \advisorLastName, \advisorPosTitle\\
+        %Zweitbegutachter/in: & & [Titel Vorname Zuname]
+		\end{tabular}
+\else
+  \begin{tabular}{lll}
+  Advisor: & \advisorPreTitle\ \advisoFirstName\ \advisorLastName, \advisorPosTitle\\
+  Second Advisor: & \assessorPreTitle\ \assessorFirstName\ \assessorLastName, \assessorPosTitle\\
+  \end{tabular}
+
+\fi
+\fi
+\fi
+\fi
+\fi
+\fi
+
+\vspace{1cm}
+
+
+\large{\place, \dateDay.\dateMonth.\dateYear}
+
+
+\end{center}
+
+\restoregeometry

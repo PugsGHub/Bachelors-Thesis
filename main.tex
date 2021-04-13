@@ -125,7 +125,11 @@
     % internal cross-reference links, web links for URLs, etc.)
 \usepackage{hyperref}
 \usepackage{longtable} % longtable support required by pandoc >1.10
-
+\usepackage{tabularx}
+\usepackage{epigraph}
+\usepackage{quotchap}
+\usepackage{lscape}
+\usepackage{enumerate}
 % embedding of audio/video files etc.
 % \usepackage{attachfile}
 % \usepackage{movie15}
@@ -160,6 +164,10 @@
 \newcommand{\derv}{\huge$\frac{d}{dt}$}
 \newcommand{\conv}{\huge$\ast$}
 
+\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+\newcommand{\scriptr}{\mathcalligra{r}\,}
+\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
 % ============================================
 
 % -- Settings für Code abbildungen
@@ -255,7 +263,6 @@
 
 \newpage
 \include{Chapters/b_Abstract}
-\include{Chapters/b_Kurzfassung}
 
 \newpage
 
@@ -275,17 +282,21 @@
 % ================================*/
 
 % Delete this include at the end
-\include{Example}
+
 
 % /*================================
 % =            CONTENTS            =
 % ================================*/
-
-\include{Chapters/01_Introduction}
-\include{Chapters/02_Method}
-\include{Chapters/03_Results}
-\include{Chapters/04_Discussion}
-\include{Chapters/05_Conclusion}
+\include{Chapters/schedules}
+\include{Chapters/1.Prelims}
+\include{Chapters/2.AnalyticalMech}
+\include{Chapters/3.QM}
+\include{Chapters/4.MultPart}
+\include{Chapters/5.Field_Theory}
+\include{Chapters/6.Canon}
+\include{Chapters/7.Gauge}
+\include{Chapters/8.Conclusion}
+\include{Chapters/9.Appendix}
 
 \pagestyle{plain} 
 
@@ -317,25 +328,71 @@
 
 % ============================================
 
-\include{Chapters/Appendix}
+
 
 %\printbibliography
 \begin{thebibliography}{9}
-	
-	\bibitem{p} Baez, J. C., &amp; Muniain, J. P. (2011). Gauge fields, knots and gravity. Singapore: World Scientific.
+    \bibitem {} Goldstein, H., Safko, J., &amp; Poole, C. P. (2014). Classical mechanics. Harlow: Pearson.
+    
+    \bibitem {} David Tong, Notes on Classical Mechanics
+    	
+	\bibitem {p} Neuenschwander, D. E. (2017). Emmy Noether's wonderful theorem. Baltimore: Johns Hopkins Univ. Press.
 	
 	\bibitem{p} Griffiths, D. J. (2018). Introduction to electrodynamics. Cambridge, United Kingdom: Cambridge University Press.
 	
 	\bibitem {p} Lancaster, T., \& Blundell, S. (2018). Quantum field theory for the gifted amateur. Oxford: Oxford University Press.
 	
-	\bibitem {p} Neuenschwander, D. E. (2017). Emmy Noether's wonderful theorem. Baltimore: Johns Hopkins Univ. Press.
+	\bibitem{p1} Griffiths, D. J. (2005). Introduction to quantum mechanics. Upper Saddle River, NJ: Pearson/Prentice Hall 
 	
-	 \bibitem {p} Aivazis, M., \& Tung, W. (2006). Group theory in physics. Singapore: World Scientific.
+	\bibitem{p2} Shankar, R (1994). Principles of quantum mechanics. New York: Springer
 	
-	\bibitem {p6} Schwichtenberg, J. (2018). Physics from Symmetry. Cham: Springer International Publishing.
+	\bibitem {p12} Larkoski, A. J. (2019). Elementary particle physics: An intuitive introduction. Cambridge University Press 
+	\bibitem {p13} Peskin, M. (2018). Concepts of Elementary Particle Physics. Oxford Higher Education 
 	
+	\bibitem {} Halmos, P. R. (1987). Naive set theory. Berlin u.a.: Springer.
 	
+	\bibitem {} Stone, M., &amp; Goldbart, P. M. (2010). Mathematics for physics: A guided tour for graduate students. Cambridge: Cambridge University Press.
+	
+	 \bibitem {p14} Arfken, G., Weber, H. J., \& Harris, F. E. (2013). Mathematical methods for physicists. Amsterdam: Elsevier Academic Press.
+	
+	\bibitem {p15} Riley, K. F., \& Hobson, M. P. (2008). Mathematical methods for physics and engineering a comprehensive guide. Cambridge: Cambridge University Press.
+	
+	\bibitem {p16} Artin, M (2018). Algebra.NY, NY: Pearson
+	
+	\bibitem {p17} Fleisch, D. A. (2018). A student's guide to vectors and tensors. Cambridge: Cambridge University Press
+	
+	\bibitem {p18} Jeevanjee, N. (2015). An introduction to tensors and group theory for physicists: Nadir Jeevanjee. Cham: Birkhauser.
+	
+	\bibitem {p19} Das, A. J. (2007). Tensors: The Mathematics of Relativity Theory and Continuum Mechanics. New York: Springer Science Business Media, LLC
+	
+	 \bibitem {p20} Kees Dullemond \& Kasper Peeters (1991), Introduction to Tensor Calculus 
+		
+	\bibitem {p21} Nakahara, M. (2017). Geometry, Topology and Physics. Boca Raton, FL: CRC Press.
+	
+	\bibitem {p22} Neuenschwander, D. E. (2015). Tensor Calculus for Physics: A Concise Guide. Baltimore, MD: JOHNS HOPKINS University Press.
+	
+	 \bibitem {p23} Oppenheim, A. V., Willsky, A. S., \& Nawab, S. H. (2015). Signals \& systems. Second edition.: Pearson.
+    
+    \bibitem {p6} Schwichtenberg, J. (2018). Physics from Symmetry. Cham: Springer International Publishing.
+    
+    \bibitem{} Robinson Matthew. (2011). Symmetry and the standard model: Mathematics and particle physics. New York: Springer.
+     
+    \bibitem {p33} Needham, T. (2012). Visual complex analysis. Oxford: Clarendon Press.
+     
+    \bibitem {p} Aivazis, M., \& Tung, W. (2006). Group theory in physics. Singapore: World Scientific.
+	
+    \bibitem{} Axler, S. (2017). Linear algebra done right. Springer.
+    
+    \bibitem{} Schwichtenberg, J (2019). Demystifying Gauge Symmetry. History and Philosophy of Physics, arXiv
+    
+    \bibitem{} Max Planck (1968). Scientific Autobiography and Other Papers. Philosophical Library
 
+    \bibitem{} F. Bloch (1976). Heisenberg and the early days of quantum mechanics. Physics Today, December
+    
+    
+    \bibitem {} Ron Y. Donagi (1997). Seiberg-Witten integrable systems. arXiv:alg-geom/9705010
+    
+    \bibitem {} Christopher A. Martin (2003).  On continuous symmetries and the foundations of modern physics, Symmetries in Physics, Philosophical Reflections. Cambridge University Press
 \end{thebibliography}
 % ============================================
 

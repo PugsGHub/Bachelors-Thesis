@@ -1,0 +1,552 @@
+\begin{savequote}[45mm]
+We were on a walk and somehow began to talk about space.  I had just read Weyl’s book "Space, Time and Matter", and under its influence was proud to declare that "Space was simply the field of linear operations".  ‘Nonsense,’ said Heisenberg, ‘space  is  blue and birds  fly through it.’  
+\qauthor{Hermann Weyl}
+\end{savequote}
+\chapter{Quantum Mechanics}
+\label{ch:qm}
+
+\section{State Vector}
+\begin{itemize}
+\item In Quantum Mechanics, we start with an object called the state vector $\ket{\psi}$. All the information about the system is contained in it. 
+\item The position basis representation of the state vector is called the wavefunction $\psi (\vec{x}, t) = \braket{x}{\psi}$.
+\item If we wish to know about a particular physical measurable such as an object's position of momentum, we can extract this information from the State vector by means of acting on with an Operator that corresponds to the measurable quantity.
+\end{itemize}
+\subsection{Admissibility Conditions for a Wavefunction}
+A physically relevant wavefunction must be:
+\begin{itemize}
+\item Continuous i.e. no singularities in it's topology
+\item Smooth i.e. a Taylor expansion for it exists
+\item Quadratically integrable with the integral being single valued i.e. finite everywhere and $\psi \rightarrow 0$ as $r \rightarrow \infty$
+\item Forming an orthonormal set
+\item Satisfying the boundary conditions of the quantum mechanical system it represents
+\end{itemize}
+\section{Observables}
+\begin{itemize}
+\item Observable quantities such as position and momentum.
+\item Observables are represented as Hermitian operators in quantum mechanics
+\end{itemize}
+
+\section{Time Evolution}
+\subsection{Schrodinger Picture}
+Where\\
+If we consider the Schrodinger picture i.e. the state vector evolves with time whereas the observables are in a loose sense eternal. The time evolution of the state vector is given by the Schrodinger equation:
+\begin{equation}
+	i \hbar \frac{\partial \ket{\psi}}{\partial t} = \hat{H} \ket{\psi}
+\end{equation}
+Or,
+\begin{equation}
+	i \hbar \frac{\partial \psi}{\partial t} = \hat{H} \psi
+\end{equation}
+in terms of the Wavefunction. Where, $\hat{H}$ is the Hamiltonian operator, which can be expressed as:
+\begin{equation}
+	\hat{H} = -\frac{\hbar^{2} \nabla^2}{2m} + V(\vec{x})
+\end{equation}
+for a free particle. 
+
+\subsection{Heisenberg Picture}
+In the Heisenberg picture, it is the operators which change in time while
+the basis of the space remains fixed.
+This is accomplished by adding a term to the Schrödinger states to eliminate the time-dependence,
+\begin{equation}
+    \vert \psi_H\rangle=e^{iH_st/\hbar}\vert\psi_s(t)\rangle=\vert\psi_s(0)\rangle
+\end{equation}
+But the operators themselves change with time,
+\begin{equation}
+    \hat{O}=\hat{O}(t)
+\end{equation}
+And they are governed by the differential equation,
+\begin{equation}
+    \frac{d\hat{O}}{dt}=\frac{i}{\hbar}[\hat{H}_s,\hat{O}]+ \left(\frac{\partial\hat{O}}{\partial t}\right)
+\end{equation}
+\section{Measurement}
+Measurement is defined as a form of time-evolution that is non-unitary and non-deterministic. 
+According to Born's rule
+\begin{equation}
+	\int_{a}^{b} \abs{\psi(\vec{x}, t)}^{2} dx = \text{Probability of finding the particle at a time t between positions a and b}
+\end{equation}
+Thus, . Physically speaking this lends a kind of indeterminacy to the wavefunction. We can only speak of probabilities. Therefore, we can only , this brings to the measurement hypothesis, that is the State vector evolves to the state corresponding to the measurement being made. And unlike the Schrodinger equation, this evolution is non-deterministic. This tension is often called the "measurement problem", i.e. why is the measurement of an observable a special process distinct from others? Several theories and models claim to have resolved this, but we shall save that discussion for another time. We will fully focus on understanding the theory of Quantum Mechanics in a pragmatic lens before we question its foundations (although the converse isn't necessarily a bad thing, it isn't the purpose of this manuscript however).
+
+\section{Summary of Postulates}
+\begin{enumerate}
+    \item The state of a quantum system is represented by wavefunction $\psi$. All the information about the system can be found from the knowledge of $\psi$
+    \item All the physical observables are represented by Hermitian operators
+    \item The outcome of measurement of any physical observables are the eigenvalues of the corresponding Hermitian operators. These eigenvalues are real.
+    \item Born's interpretation states that,
+    \begin{equation*}
+        \rho = \psi^*\psi=|\psi|^2
+    \end{equation*}
+    This is called the probability density, and,
+    \begin{equation*}
+        \int_{b}^{a}\psi^*(x,t)\psi(x,t)dx=\text{Probability of finding particle between x=a to x=b}
+    \end{equation*}
+    \item The expectation values of operators are given by,
+    \begin{equation*}
+        \langle\hat{A}\rangle=\int\psi^*A\psi dx
+    \end{equation*}
+    \begin{equation*}
+        \langle\hat{A}\rangle=\int\int\int \psi^*A\psi dx dy dz
+    \end{equation*}
+    If it is not normalised,
+    \begin{equation*}
+        \langle \hat{A}\rangle=\frac{\int\psi^*A\psi dx}{\int\psi^*\psi}
+    \end{equation*}
+    \item The time evolution of the wavefunction is governed by the Schrodingers equation,
+    \begin{equation*}
+        i\hbar\frac{\partial \psi}{\partial t}=\hat{H}\psi
+    \end{equation*}
+\end{enumerate}
+\section{Normalization}
+Normalization is a process through which we ensure that,
+\begin{equation}\label{norm}
+	\int_{- \infty}^{\infty} \abs{\psi(\vec{x}, t)}^{2} dx = 1
+\end{equation}
+This is a natural consequence of Born's rule, we simply want all the probabilities to add up to 1. Thus, to rule out any other absurd scenarios, we make a ruling that non-Normalizable and non-square integrable Wavefunctions are unphysical.\\
+We can also prove that once normalized, the wavefunction always remains normalized, we start by differentiating equation (\ref{norm}) with respect to time\\
+$$\frac{d}{dt} \int_{- \infty}^{\infty} \abs{\psi(\vec{x}, t)}^{2} dx = \frac{\partial}{\partial t}\int_{- \infty}^{\infty} \abs{\psi(\vec{x}, t)}^{2} dx$$
+Dealing with the term inside the integral,
+$$ \frac{\partial}{\partial t}\abs{\psi(\vec{x}, t)}^{2} = \frac{\partial}{\partial t} (\psi^{*} \psi ) = \psi^{*}\frac{\partial \psi}{\partial t} + \psi\frac{\partial \psi^{*}}{\partial t}$$
+Now the Schrodinger equation for a free particle reads as,
+$$\frac{\partial \psi}{\partial t} = \frac{i \hbar}{2m}\frac{\partial^{2} \psi}{\partial x^{2}} - \frac{i}{\hbar}V \psi$$
+Conjugating this we can see that,
+$$\frac{\partial \psi^{*}}{\partial t} = -\frac{i \hbar}{2m}\frac{\partial^{2} \psi^{*}}{\partial x^{2}} + \frac{i}{\hbar}V \psi^{*}$$
+Thus,
+$$\frac{\partial}{\partial t}\abs{\psi(\vec{x}, t)}^{2} = \frac{i \hbar}{2m}\left( \psi^{*} \frac{\partial^{2} \psi}{\partial x^{2}} - \psi \frac{\partial^{2} \psi^{*}}{\partial x^{2}} \right) = \frac{\partial }{\partial x}\left[\frac{i \hbar}{2m}\left( \psi^{*} \frac{\partial \psi}{\partial x} - \psi \frac{\partial \psi^{*}}{\partial x} \right)\right]$$
+Now we evaluate the integral,
+$$\frac{d}{dt} \int_{- \infty}^{\infty} \abs{\psi(\vec{x}, t)}^{2} dx = \frac{i \hbar}{2m}\left( \psi^{*} \frac{\partial \psi}{\partial x} - \psi \frac{\partial \psi^{*}}{\partial x} \right)^{\infty}_{- \infty} $$
+But $\psi$ must go to zero as goes to infinity, otherwise the wave function would not be normalizable. Thus it follows that.
+\begin{equation}
+	\frac{d}{dt} \int_{- \infty}^{\infty} \abs{\psi(\vec{x}, t)}^{2} dx = 0
+\end{equation}
+And hence, the integral is constant i.e. independent of time. Therefore if is normalized at a time $t = 0$, it remains normalized for all future. 
+\section{Generalized Uncertainty Principle}
+\subsection{Cauchy-Schwarz Inequality}
+For all triangles as depicted above, 
+$$|X| + |Y| \geq |Z|$$
+Where |X| is the length of the vector $\vec{X}$. We can also write the last equation as:
+$$|\vec{X}| + |\vec{Y}| \geq |\vec{X} + \vec{Y}|$$
+Squaring this equation it becomes, 
+$$|\vec{X}|^2 + |\vec{Y}|^2 + 2|\vec{X}||\vec{Y}| \geq |\vec{X} + \vec{Y}|^2$$
+Expanding the right side we get, 
+$$|\vec{X}|^2 + |\vec{Y}|^2 + 2|\vec{X}||\vec{Y}| \geq |\vec{X}|^2 + |\vec{Y}|^2 + 2(\vec{X}.\vec{Y})$$ 
+Cancelling the terms we find, 
+$$|\vec{X}||\vec{Y}| \geq \vec{X}.\vec{Y}$$ 
+This is called the Cauchy-Schwarz inequality. Writing this using the state vectors, $$|X| = \sqrt{\langle X| X \rangle}$$
+$$|Y| = \sqrt{\langle Y| Y \rangle}$$ 
+$$|X + Y| = \sqrt{(\langle X | + \langle Y |)(|X\rangle + |Y\rangle)}$$ 
+we have by substituting into the inequality, 
+$$\sqrt{\langle X| X \rangle} + \sqrt{\langle Y | Y \rangle} \geq \sqrt{\langle X|Y \rangle + \langle Y|X \rangle}$$ 
+squaring it and simplifying we find 
+$$2|X||Y| \geq |\langle X|Y \rangle + \langle Y|X \rangle |$$
+This is the Cauchy-Schwarz inequality written in terms of state vectors.
+The Uncertainity Principle
+Suppose we have a ket $| \psi \rangle$ and two operators $\hat{A}$ and $\hat{B}$, we define their standard distribution as
+$$\sigma^{2}_{A} = \langle f | f \rangle$$
+$$\sigma^{2}_{B} = \langle g | g \rangle$$
+Where,
+$$| f \rangle = (\hat{A} - \langle A \rangle)| \psi \rangle$$
+$$| g \rangle = (\hat{B} - \langle A \rangle)| \psi \rangle $$
+We use the Cauchy-Shwarz inequality,
+$$\sigma^{2}_{A} \sigma^{2}_{B} = \langle f  | f \rangle \langle g | g \rangle \geq  {|\langle f|g \rangle|}^{2}$$
+And for any complex number $z$,
+$${|z|}^{2} = {[Re(z)]}^{2} + {[Im(z)]}^{2} \geq {[Im(z)]}^{2}$$
+We then set, $z = \langle f | g \rangle$
+$$\sigma^{2}_{A} \sigma^{2}_{B} = {\left(\frac{1}{2i} [ \langle f | g \rangle - \langle g | f \rangle]\right)}^{2}$$
+But
+$$\langle f | g \rangle = \langle \psi | ( \hat{A} - \langle A \rangle ) (\hat{B} - \langle B \rangle) | \psi \rangle$$
+$$\langle f | g \rangle = \langle \hat{A}\hat{B} \rangle - \langle \hat{B} \rangle \langle \hat{A} \rangle - \langle \hat{A} \rangle \langle \hat{B} \rangle + \langle \hat{A} \rangle \langle \hat{B} \rangle$$
+$$\langle f | g \rangle = \langle \hat{A}\hat{B} \rangle - \langle \hat{B} \rangle \langle \hat{A} \rangle - \langle \hat{A} \rangle \langle \hat{B} \rangle + \langle \hat{A} \rangle \langle \hat{B} \rangle$$
+$$\langle f | g \rangle = \langle \hat{A}\hat{B} \rangle - \langle \hat{A} \rangle \langle \hat{B} \rangle$$
+Therefore,
+$$\langle g | f \rangle = \langle \hat{B}\hat{A} \rangle - \langle \hat{A} \rangle \langle \hat{B} \rangle$$
+We can then say that,
+$$\langle f | g \rangle - \langle g | f \rangle = \langle \hat{A}\hat{B}\rangle -  \langle \hat{B}\hat{A}\rangle= \langle \psi | \hat{A}\hat{B} - \hat{B}\hat{A} | \psi \rangle$$
+Which is the same as,
+$$\langle f | g \rangle - \langle g | f \rangle = \langle [\hat{A},\hat{B}] \rangle$$
+Putting this all together we get,
+$$\sigma^{2}_{A} \sigma^{2}_{B} \geq {\left(\frac{1}{2i}\langle [\hat{A},\hat{B}] \rangle\right)}^{2}$$
+This is called the generalized uncertainty principle. This basically states that two variables that do not commute cannot be measured with precision simultaneously. 
+Talking about position and momentum
+We know that observable properties can be represented using operators, here we'll
+$$\hat{x} = x$$
+$$\hat{P} = -i\hbar \frac{\partial}{\partial x}$$
+So we now try to find the commutator of those operators now
+$$[\hat{x}, \hat{p}] = \hat{x}\hat{p} - \hat{p}\hat{x}$$
+$$[\hat{x}, \hat{p}] = -ix\hbar \frac{\partial}{\partial x} + i\hbar \frac{\partial}{\partial x}$$
+Now let's apply this to state vector to obtain the expectation value 
+$$[\hat{x}, \hat{p}] |\psi\rangle = -ix\hbar \frac{\partial}{\partial x} |\psi\rangle + i\hbar \frac{\partial x|\psi\rangle}{\partial x}$$ 
+$$[\hat{x}, \hat{p}] |\psi\rangle = -ix\hbar \frac{\partial}{\partial x} |\psi\rangle + ix\hbar \frac{\partial |\psi\rangle}{\partial x} + i\hbar$$
+$$[\hat{x}, \hat{p}] |\psi\rangle = i\hbar$$
+Substituting this into the generalized uncertainty principle,
+$$\sigma_{x}\sigma_{p} \geq \frac{1}{2i} i\hbar$$
+$$\sigma_{x}\sigma_{p} \geq \frac{\hbar}{2} $$
+$$\sigma_{x}\sigma_{p} \geq \frac{h}{4 \pi}$$
+\subsection{Summary}
+We can visualize all of this in the form of waves. The more precisely we measure its wavelength
+image
+the less precisely we measure its frequency.
+image
+Thus, the state vector can be thought of a wave whose frequency and wavelength somehow correspond to position and momentum or it is simply a wave in a space where the axes are position and momentum. The uncertainty principle thus isn't just a property of quantum Mechanics but is a property of waves in general.
+\section{Stationary State}
+A  stationary state $\psi_{0}$ is a quantum mechanical state:
+\begin{itemize}
+\item with all observables independent of time
+\item an eigenvector of the Hamiltonian
+\item corresponds to a state with a single definite energy
+\end{itemize}
+Stationary states themselves are not constant in time but their probability densities $\abs{\psi_{0}}^{2}$ are
+\section{The Continuity Equation}
+\begin{tcolorbox}
+\begin{equation}
+\frac{\partial \rho}{\partial t} = - \nabla . \vec{J}
+\end{equation}
+\end{tcolorbox}
+Where,
+$$\rho = \psi \psi^{*}$$
+$$\vec{J} = \frac{\hbar}{2mi} \left[ \psi^{*} \nabla \psi - (\nabla \psi^{*})\psi\right]$$
+
+\subsection{Interpretation}
+\begin{itemize}
+\item Probability is conserved i.e. $\sum_{i}^{\infty}P_{i} = 1$ \footnote{This holds well in the non-relativistic case i.e. when there is no creation or annihilation of particles}
+\item The probability density evolves deterministically
+\end{itemize}
+\section{Toy Models}
+\subsection{Infinite Square Well}
+The Schrodinger equation is given by,
+\begin{equation}
+	-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2}=E\psi
+\end{equation}
+And so,
+\begin{equation}
+	\frac{d^2\psi}{dx^2}=k^2\psi \; \text{where}\, k\equiv\frac{\sqrt{2mE}}{\hbar}
+\end{equation}
+This equation is simply the simple harmonic oscillator equation, whose general solution is,	\begin{equation}
+	\psi(x)=A\sin kx + B\cos kx
+\end{equation}
+Continuity of $\psi(x)$ requires that,
+	\begin{equation*}
+		\psi(0)=\psi(a)=0
+	\end{equation*}
+		This is called the boundary conditions for our problem at hand. Now imposing this on A and B,
+		\begin{equation}
+			\psi(0)=A\sin 0 + B\cos 0 =B
+		\end{equation}
+		So $B=0$, and hence,
+		\begin{equation}
+			\psi(x)=A\sin kx
+		\end{equation}
+		Then, $\psi(a)=A\sin ka$, so $\sin ka=0$, which means that,
+		\begin{equation}
+			ka=0, \; \pm\pi, \; \pm2\pi, \; \pm3\pi...
+		\end{equation}
+			Negative solutions are insignificant, so the distinct solutions are,
+		\begin{equation}
+			k_n=\frac{n\pi}{a}, \, \text{with}\; n=1,2,3,...
+		\end{equation}
+	And so the possible values (eigenvalues) of $E$ are,
+	\begin{equation}
+		E_n=\frac{\hbar^2k^2_n}{2m}=\frac{n^2\pi^2\hbar^2}{2ma^2}
+	\end{equation}
+		Finding A using by normalisation,
+	\begin{equation}
+		\int_{0}^{a}|A|^2\sin^2(kx)dx=|A|^2\frac{a}{2}=1 \, \text{so} \, |A|^2=\frac{2}{a}
+	\end{equation}
+	Now the eigenfunction is,
+	\begin{equation}
+		\psi_n(x)=\sqrt{\frac{2}{a}}\sin \left(\frac{n\pi}{a}x\right)
+	\end{equation}
+	
+	\subsection{The Harmonic Oscillator }
+		For a harmonic oscillator, we try to solve the Schrodinger equation with the potential,
+			\begin{equation}
+				V(x)\frac{1}{2}m\omega^2x^2
+			\end{equation}
+			And so,
+			\begin{equation}
+				-\frac{\hbar}{2m}\frac{d^2\psi}{dx^2}+\frac{1}{2}m\omega^2x^2\psi=E\psi
+			\end{equation}
+			Writing this more neatly,
+			\begin{equation}
+				\frac{1}{2m}[\hat{p}^2+(m\omega x)^2]\psi=E\psi
+			\end{equation}
+		where $\hat{p}\equiv-i\hbar d/dx$ is the momentum operator. Here, we are simply trying to factor out the Hamiltonian,
+		The Hamiltonian can be said to be,
+				\begin{equation}
+				\hat{H}=\frac{1}{2m}[\hat{p}^2+(m\omega x)^2]
+				\end{equation}
+			But we cannot factor out the Hamiltonian that easily, since the quanitites are operators and they do not commute. So we introduce a new quantity
+			\begin{equation}
+				\hat{a}\pm\equiv\frac{1}{\sqrt{2\hbar m\omega}}(\mp i\hat{p}+m\omega x)
+			\end{equation}
+		Now,
+		\begin{align}
+			\hat{a_-}\hat{a_+}&=\frac{1}{2\hbar m\omega}(i\hat{p}+m\omega x)(-i\hat{p}+m\omega x)\\
+							  &=\frac{1}{2\hbar m\omega}[\hat{p}+(m \omega x)^2-im\omega(x\hat{p}-\hat{p}x)]
+		\end{align}
+			Now, writing this using commutator brackets,
+			\begin{equation}
+				\hat{a_-}\hat{a_+}=\frac{1}{2\hbar m\omega}[\hat{p}^2+(m\omega x)^2]-\frac{i}{2\hbar}[x,\hat{p}]
+			\end{equation}
+			Using the canonical commutation relation,
+			\begin{equation*}
+				[x,\hat{p}]=i\hbar
+			\end{equation*}
+			\begin{equation}
+					\hat{a_-}\hat{a_+}=\frac{1}{\hbar \omega}\hat{H}+\frac{1}{2}
+			\end{equation}
+			Rearranging
+				\begin{equation}
+					\hat{H}=\hbar\omega\left(\hat{a_-}\hat{a_+}-\frac{1}{2}\right)
+				\end{equation}
+					Now doing the same for the other case,
+			\begin{equation}
+				\hat{H}=\hbar\omega \left(\hat{a_+}\hat{a_-}+\frac{1}{2}\right)
+			\end{equation}
+			The Schrodinger equation can be written as,
+			\begin{equation}
+				\hbar\omega\left(\hat{a\pm}\hat{a\mp}\pm\frac{1}{2}\right)\psi=E\psi
+			\end{equation}
+			Now, we make the claim,
+			\begin{gather*}
+				\hat{H}\psi=E\psi \\
+				\hat{H}(\hat{a_+}\psi)=(E+\hbar\omega)(\hat{a_+}\psi)
+			\end{gather*}
+			Applying the lowering operator to the ground state wavefunction,
+			\begin{equation}
+				\hat{a_-}\psi_0=0
+			\end{equation}
+			Now $\psi_0(x)$,
+			\begin{equation}
+				\frac{1}{\sqrt{2\hbar m\omega}}\left(\hbar \frac{d}{dx}+m\omega x\right)\psi(0)=0
+			\end{equation}
+			or,
+			\begin{equation}
+				\frac{d\psi_0}{dx}=-\frac{m\omega}{\hbar}\psi_0
+			\end{equation}
+		Solving this differential equation,
+		\begin{equation}
+			\int\frac{d\psi_0}{\psi_0}=-\frac{m\omega}{\hbar}\int xdx=\ln(\psi_0)=-\frac{m\omega}{2h}x^2+C
+		\end{equation}
+		From Equation (51),
+			\begin{equation}
+				\psi_0(x)=Ae^{-\frac{m\omega}{2\hbar}x^2}
+			\end{equation}
+			From normalisation we have,
+			\begin{equation}
+				A^2=\sqrt{m\omega/\pi\hbar}
+			\end{equation}
+			And now,
+			\begin{equation}
+				\psi_0(x)=\left(\frac{m\omega}{\pi\hbar}\right)^{1/4}e^{-\frac{m\omega}{2\hbar}x^2}
+			\end{equation}
+			Now our ground state energy is given by,
+			\begin{equation}
+				E_0=\frac{1}{2}\hbar\omega
+			\end{equation}
+				From here, we can just apply the raising operators from the ground state to obtain our excited state eigenfunctions and energies,
+			\begin{gather}
+				\psi_n(x)=A_n(\hat{a_+})^n\psi_0(x)\\
+				E_n=\left(n+\frac{1}{2}\right)\hbar\omega
+			\end{gather}
+\section{Quantum Mechanical Transformations}
+In this section we are going to look at how quantum states, operators and quantum fields will transform when subjected to translations, rotations or Lorentz boosts.  \\
+The translation of a three-vector is achieved by adding a factor "$a$" to the vector. 
+\begin{equation}
+    x^{'} = T(a)x = x+a
+\end{equation}
+Rotation of a three vector is given by 
+\begin{equation}
+x^{'} = R(\theta)x =  \begin{pmatrix}
+\cos \theta & -\sin \theta & 0\\
+\sin \theta & \cos \theta & 0 \\
+0 & 0 & 1  \\
+\end{pmatrix}
+\end{equation}
+Let us try to formulate operators that can transform quantum mechanical states in Hilbert space. 
+\subsection{Translation in Spacetime}
+Lets define a quantum mechanical operator $\hat{U}$ that takes a state localized at x and transforms it to a position x+a.
+\begin{equation}
+    \hat{U}(a) \ket{x} = \ket{x+a}
+\end{equation}
+This falls under the category of active transformation wherein we move the particle to another point in the space which is contrary to the passive transformation wherein we move the axes while keeping the position of the object fixed. \\ 
+Let us define some translation properties that our operator must possess. 
+\begin{itemize}
+    \item Our operator should not change the probability density when it acts on the state vector. 
+    \begin{equation}
+        \braket{\psi(x)} = \braket{\psi(x+a)} = \bra{\psi(x)}\hat{U^{\dagger}}(a) \hat{U}(a) \ket{\psi(x)}
+    \end{equation}
+    Which means, 
+    \begin{equation}
+        \hat{U^{\dagger}}(a)\hat{U}(a) = 1
+    \end{equation}
+    This is to say that our operator is unitary. 
+    \item We want our operator to be composite, i.e, 
+    \begin{equation}
+        \hat{U}(a) \hat{U}(b) = \hat{U}(a+b)
+    \end{equation}
+    \item Just for completeness sake, we should also have the trivial property that the transformation can do nothing to the particle, that is $\hat{U}(0)= 1$
+\end{itemize}
+Now to put all of our conditions together, we get, 
+\begin{eqnarray}
+ \hat{U^{\dagger}}(a)\hat{U}(a) = 1 (Unitarity)\\
+  \hat{U}(a) \hat{U}(b) = \hat{U}(a+b)(Composite) \\
+  \hat{U}(0)= 1(Zero \: translation \: does \: nothing \: to \: the \: particle)
+\end{eqnarray}
+These translation properties of the operator suggests that it should form a group in which each element depends on the value of "a" which thereby makes it differentiable, continuous, and contain infinite number of elements. This specific group is called a $\boldsymbol{Lie}$ group. \\
+\\
+Now that we have an idea about the properties our transformation operator must possess, lets try to come up with an explicit operator which acts on quantum states in Hilbert space. \\
+\\
+Lets consider a case of a positive wave function $\psi(x)= \bra{x}\ket{P}$. Lets increment $\psi(x)$ by $\delta a$ along the x-direction. 
+\begin{equation}
+    \psi(x+\delta ) = \psi(x) + \frac{d \psi(x)}{d x} \delta a + .....
+\end{equation}
+We know that $\hat{P}=-i \frac{d}{dx}$. Hence, 
+\begin{equation}
+    \psi(x+\delta ) = (1+ iP \delta a) \psi (x)
+\end{equation}
+We say that the momentum operator $\hat{P}$ is the "generator" for the space
+translation. \\
+For 'N' translations, we have, 
+\begin{equation}
+    \psi(x+a) = \lim_{N -> \infty} (1+ iP \delta a)^{N} \psi (x)
+\end{equation}
+This gives us a space evolution operator.  \\
+\\
+The translation operator is therefore, 
+\begin{equation}
+    \hat{U}(a) = e^{-i\hat{P} . a}
+\end{equation}
+Lets look at how the operator evolves with time. Lets evolve the system by a time $\delta t_{a}$. We get, 
+\begin{equation}
+\psi(t+\delta t_{a}) = \psi (t) + \frac{d \psi(t)}{d t} \delta t_{a}
+\end{equation}
+We know that $\hat{H} = i \frac{d}{dt}$, hence, 
+\begin{equation}
+    \psi(t+\delta t_{a}) = (1- iH \delta t_{a}) \psi (t)
+\end{equation}
+To change the operator from a time evolving operator to a time translation operator, we need to change the sign. 
+\begin{equation}
+    \hat{U}(t_{a}) = e^{iHt_{a}}
+\end{equation}
+Combining the space and time translation operators, we get, 
+\begin{equation}
+    \hat{U}(a) = e^{ iHt_{a} -i\hat{P} . a}
+\end{equation}
+We chose the four -momentum operator to be $P=(\hat{H},\hat{P})$
+\subsection{Rotations in Spacetime}
+We specify the rotation as $R(\theta)$, where the direction of the vector $\theta$ is the axis of rotation and its magnitude is the angle. The rotation matrix acts on the operator which for example is the momentum operator, $P^{'}= R(\theta) P$. For rotations of quantum states, we consider an operator, 
+\begin{equation}
+    \ket{P^{'}} = \hat{U}(\theta) \ket{P} = \ket{R(\theta)P}
+\end{equation}
+The operator $\hat{U}(\theta)$ has the same set of properties as the translation operator as mentioned above. \\
+Since $P^{'} = R(\theta)P$, $d^{3}P= d^{3}P^{'}$
+\begin{equation}
+   \int d^{3}P \ket{R(\theta)P} \bra{R(\theta)P} = \int d^{3}P^{'}\ket{P^{'}}\bra{P^{'}} = 1
+\end{equation}
+The expression for rotation can be written as, 
+\begin{equation}
+    \hat{U}^{\dagger}(\theta) \hat{P} \hat{U}(\theta) = R(\theta) \hat{P}
+\end{equation}
+Thus the momentum operator is transformed in just the same way as we would rotate a momentum vector. \\
+Lets look at how the rotation operator acts on a specific axis. Lets consider the z-axis and allow the rotation operator to act on the wave function along that axis. 
+\begin{equation}
+\psi(\theta^{z} + \delta \theta^{z}) = \psi(\theta^{z}) + \frac{d \theta^{z}}{d \theta^{z}}\delta \theta^{z}
+\end{equation}
+We know that $\hat{j}^{z}= - i \frac{d}{d \theta^{z}}$ from which we see that rotations are generated by the angular momentum operator. 
+\begin{equation}
+    \psi(\theta^{z} + \delta \theta^{z}) = (1+i \hat{j}^{z} \delta \theta^{z}) \psi(\theta^{z})
+\end{equation}
+Repeating the rotations such that $N-> \infty$, we get, 
+\begin{equation}
+    \hat{U}(\theta)= e^{-i \hat{j}.\theta}
+\end{equation}
+\subsection{Representation of Transformations}
+Any rotation $R(\theta)$ can be represented by a square matrix $D(\theta)$
+\begin{equation}
+    D(\theta) =  e^{-i j.\theta}
+\end{equation}  
+In this equation, J is a square matrix representation of the operator $\hat{j}$. \begin{equation}
+    j^{i} = -\frac{1}{i} \frac{\delta D(\theta^{i})}{\delta \theta^{i}}|_{\theta^{i} = 0}
+\end{equation}
+The important point about these representations is that they all share the same underlying algebraic structure as the rotation operator. This algebra is called a Lie algebra.
+\subsection{Transformation of Quantum Fields}
+We’ll try to transform quantum fields by first examining a scalar field, which is an operator-valued field whose matrix elements are scalars. \\ 
+There are two ways of thinking about translations operators,
+\begin{itemize}
+    \item Acting on states:  $\hat{U}(a) \ket{x} = \ket{x+a}$, moves a locally defined state from being localized at x to being localized at x + a.
+   \item Acting on locally defined operators: $\hat{U}^{\dagger}(a) \hat{\phi(x)} \hat{U}(a)= \phi(x-a)$
+\end{itemize}
+These are not the same expression as in the first equation, we move from $\ket{x} -> \ket{x+a}$, in which, $\phi(x)$ doesn't act on the state as the state is being moved.  \\
+In the second one, the position of the object is being moved so $\phi(x)$ yet again misses to act on the state. 
+Now, let's see what will happen if we cause a translation in spacetime by a vector a, We can try out this translated operator on
+a momentum eigenstate $\ket{q}$, 
+\begin{eqnarray}
+     \hat{U}^{\dagger}(a) \delta_{m}^{\dagger} \hat{U}(a)\ket{q} = e^{iP \cdot a} \: \delta_{m}^{\dagger} \: e^{-iP \cdot a} \ket{q} \\
+      = e^{iP \cdot a} \: \delta_{m}^{\dagger}\ket{q} \: e^{-iP \cdot a} \\
+      = e^{iP \cdot a} \: \ket{m,q} \: e^{-iP \cdot a} \\
+      =  \ket{m,q} e^{i(m+q) \cdot a} e^{-iq \cdot a} \\
+      = \ket{m,q}e^{im \cdot a}
+\end{eqnarray}
+So the transformed operator $\delta_{m}^{\dagger}$ still creates a state with momentum m, but the result of the transformation is an additional phase $e^{im \cdot a}$. We conclude that, 
+\begin{equation}
+    \hat{U}^{\dagger}(a) \delta_{m}^{\dagger} \hat{U}(a) = e^{im \cdot a} \delta_{m}^{\dagger}
+\end{equation}
+ It is  important to point out that if we transform a field in some
+way, we generally change the point at which the field is evaluated and also its polarization as we observe a phase difference as mentioned in the above case. \\
+A more generalised notation of the rotation transforms for an arbitrary field can be written as, 
+\begin{equation}
+    \hat{U}^{\dagger}(a) \hat{\Phi(x)} \hat{U}(a) = D(\theta) \hat{\Phi(x)} (R^{-1}(\theta)x)
+\end{equation}
+\subsection{Lorentz Transformations}
+The same set of transformations, which we have seen above, can be applied to the Lorentz Transformation of states of quantum fields. \\
+Let's consider a 4-Boost vector along x-direction, whose Lorentz transformation is given by $x^{' \mu} = \Lambda(\beta^{'})^{\mu} x_{\nu}^{\mu}$, where, 
+\begin{equation}
+    \Lambda(\beta^{'}) = \begin{pmatrix}
+    \gamma^{'} & \beta^{'}\gamma^{'} & 0 & 0 \\
+    \beta^{'}\gamma^{'} & \gamma^{'} & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1 \\
+    \end{pmatrix}
+\end{equation}
+This transformation connects two inertial frames moving with relative speed $v = c \beta^{'}$ along x. Using the substitutions $\gamma^{'}= \cosh{\theta^{'}} , \gamma^{'}\beta^{'} = \sinh{\theta^{'}} \: and \: \tanh{\phi^{'}} = \beta^{'}$
+\begin{equation}
+    \Lambda(\phi^{i}) = \begin{pmatrix}
+    \cosh{\theta^{'}} & \sinh{\theta^{'}} & 0 & 0 \\
+    \sinh{\theta^{'}} & \cosh{\theta^{'}} & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1 \\
+    \end{pmatrix}
+\end{equation}
+we can write a generalized Lorentz transformation matrix as, 
+\begin{equation}
+    D(\phi) = e^{iK \cdot \phi}
+\end{equation}
+The generators of the Lorentz transformations are given by ,
+\begin{equation}
+K^{i} = \frac{1}{i} \frac{\delta D(\phi^{i})}{\delta \theta^{i}}|_{\phi^{i} = 0}
+\end{equation}
+The quantum fields have to undergo Lorentz transform given by,
+\begin{equation}
+     \hat{U}^{\dagger}(a) \hat{\Phi(x)} \hat{U}(a) = D(\theta) \hat{\Phi(x)} (\Lambda^{-1}(\theta)x)
+\end{equation}
+The commutation of the generators of the Lorentz transform is given by, 
+\begin{equation}
+    [K^{1}, K^{2}] = K^{1}K^{2} - K^{2}K^{1} = -ij^{3}
+\end{equation}
+Some commutation laws of the generators of Lorentz transforms are, 
+\begin{equation}
+    [J^{1},K^{1}] = 0
+\end{equation}
+\begin{equation}
+    [J^{1}, K^{2}] = iK^{3}
+\end{equation}
+Generally it can be written as, 
+\begin{equation}
+    [J^{i}, K^{j}] = i \epsilon^{ijk}K^{k}
+\end{equation}
+This implies that the boosts and rotations taken together form a closed Lie
+algebra and this larger group is called the Lorentz group. \\
+We can write a general Lorentz transformation combining both boosts and rotations as
+\begin{equation}
+    D(\theta, \phi) = e^{-i(J\cdot \theta - K \cdot \phi)}
+\end{equation}
+If we also include the spacetime translations in this, we end up with an even larger group called the Poincare' group.
